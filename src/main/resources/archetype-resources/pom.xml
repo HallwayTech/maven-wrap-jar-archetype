@@ -8,7 +8,7 @@
   <artifactId>${artifactId}</artifactId>
   <name>${artifactId} bundle</name>
   <description>
-    This bundle simply wraps ${pom.artifactId}-${pom.version}.jar.
+    This bundle simply wraps ${artifactId}-${version}.jar for use as an OSGI bundle.
   </description>
   <version>${version}</version>
   <packaging>bundle</packaging>
