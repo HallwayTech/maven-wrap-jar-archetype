@@ -1,0 +1,65 @@
+<project
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.apache.felix.commons</groupId>
+  <artifactId>${artifactId}</artifactId>
+  <name>${artifactId} bundle</name>
+  <description>
+    This bundle simply wraps ${pom.artifactId}-${pom.version}.jar.
+  </description>
+  <version>${version}</version>
+  <packaging>bundle</packaging>
+
+  <organization> 
+    <name>Apache Felix Project</name> 
+    <url>http://felix.apache.org/</url> 
+  </organization>
+
+  <dependencies>
+    <dependency>
+      <groupId>${groupId}</groupId>
+      <artifactId>${artifactId}</artifactId>
+      <version>${version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <instructions>
+            <Bundle-SymbolicName>${artifactId}</Bundle-SymbolicName>
+            <Export-Package>*</Export-Package>
+          </instructions>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <profiles>
+    <profile>
+      <id>deploy</id>
+        <build>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.sling</groupId>
+              <artifactId>maven-sling-plugin</artifactId>
+              <executions>
+              <execution>
+                <id>install-bundle</id>
+                <goals><goal>install</goal></goals>
+              </execution>
+             </executions>
+           </plugin>
+         </plugins>
+       </build>
+     </profile>
+  </profiles>
+
+</project>
