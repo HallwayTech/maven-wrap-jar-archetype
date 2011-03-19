@@ -5,7 +5,7 @@
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.apache.felix.commons</groupId>
-  <artifactId>${artifactId}</artifactId>
+  <artifactId>${artifactId}.osgi</artifactId>
   <name>${artifactId} bundle</name>
   <description>
     This bundle simply wraps ${artifactId}-${version}.jar for use as an OSGI bundle.
